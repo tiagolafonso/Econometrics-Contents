@@ -2,7 +2,7 @@ Econometria 1 - Visão Geral
 
 Class18
 
-Este ficheiro é apenas um guia para o curso de Econometria. Contém os principais tópicos e conceitos abordados durante o curso. Este guia não é suficientemente abrangente para compreender totalmente o assunto. Recomenda-se usar este ficheiro como complemento aos materiais (livros e aulas) da UC.
+Este ficheiro é apenas um guia para o curso de Econometria. Contém os principais tópicos e conceitos abordados durante o curso. Este guia não é suficientemente abrangente para compreender totalmente os conteúdos. Recomenda-se utilizar este ficheiro apenas como complemento aos materiais (livros e aulas) da UC.
 
 date: "11/11/2024"
 
