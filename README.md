@@ -1,1 +1,1 @@
-# Econometric-Files
+# Econometrics-Files
