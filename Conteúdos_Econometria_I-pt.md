@@ -38,7 +38,6 @@ keywords: Econometria; Modelos Lineares; Modelos Lineares Generalizados;
 -   **nominais**: e.g. nome do país
 -   **tempo**: e.g. data, hora
 -   **geográficos**: e.g. latitude, longitude
--   **multinomiais**: e.g. partido político, ou cor do carro
 
 ### 1.4 Fontes de dados
 
