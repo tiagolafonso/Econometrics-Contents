@@ -1,10 +1,9 @@
 Econometria 1 - Visão Geral
 
-Class18
+date: "11/11/2024" Class18
 
 Este ficheiro é apenas um guia para o curso de Econometria. Contém os principais tópicos e conceitos abordados durante o curso. Este guia não é suficientemente abrangente para compreender totalmente os conteúdos. Recomenda-se utilizar este ficheiro apenas como complemento aos materiais (livros e aulas) da UC.
 
-date: "11/11/2024"
 
 keywords: Econometria; Modelos Lineares; Modelos Lineares Generalizados;
 
@@ -27,7 +26,7 @@ keywords: Econometria; Modelos Lineares; Modelos Lineares Generalizados;
 -   **per capita**: $\color{purple}\frac{y}{pop}$
 -   **inverso**: $\color{purple}\frac{1}{y}$
 -   **defasagem**: $\color{purple}y\_{t-1}$
--   **quadrado**: $\color{purple}y_squared=y^2$
+-   **quadrado**: $\color{purple}y_{sq}=y^2$
 
 ### 1.3 Tipos de dados
 
@@ -126,7 +125,7 @@ keywords: Econometria; Modelos Lineares; Modelos Lineares Generalizados;
 
 ### MPL - modelo de probabilidade linear
 
--   **método**: MQO
+-   **método**: Mínimo Quadrados Ordinários
         -   **interpretação**: Os coeficientes representam a mudança na probabilidade da variável dependente para uma mudança de uma unidade na variável independente. **Predizer a probabilidade de sucesso (quando d=1)**
         -   **pressupostos**:
                 -   **linearidade**: a relação entre a variável dependente e as variáveis independentes é linear
