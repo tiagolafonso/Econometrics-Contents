@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>overview_econometrics-en</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Overview_Econometrics-EN_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Overview_Econometrics-EN_files/libs/quarto-html/quarto.js"></script>
+<script src="Overview_Econometrics-EN_files/libs/quarto-html/popper.min.js"></script>
+<script src="Overview_Econometrics-EN_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Overview_Econometrics-EN_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Overview_Econometrics-EN_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Overview_Econometrics-EN_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Overview_Econometrics-EN_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Overview_Econometrics-EN_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Overview_Econometrics-EN_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<p>title: “Econometrics 1”</p>
+<p>subtitle: “Overview”</p>
+<p>author: “Tiago Afonso”</p>
+<p>description: “This file is only a roadmap for the Econometrics course. It contains the main topics and concepts that was covered during the course. This guide is not comprehensive enough to fully understand the subject. It is recommended to use this file as a complement to the course materials.”</p>
+<p>date: “11/11/2024”</p>
+<p>keywords: Econometrics; Linear Models; Generalized Linear Models;</p>
+<section id="econometrics-overview" class="level1">
+<h1>Econometrics Overview</h1>
+<section id="data-types-and-data-structures" class="level2">
+<h2 class="anchored" data-anchor-id="data-types-and-data-structures">1 Data types and data structures</h2>
+<section id="data-structures" class="level3">
+<h3 class="anchored" data-anchor-id="data-structures">1.1 Data structures</h3>
+<ul>
+<li><p><strong>sectional data</strong>: data collected at a single point in time</p></li>
+<li><p><strong>time series data</strong>: data collected over time</p></li>
+<li><p><strong>pane data</strong>: data collected over time and cross-sectional units</p></li>
+<li><p><strong>spatial data</strong>: data collected over space (e.g.&nbsp;geographical data)</p></li>
+</ul>
+</section>
+<section id="data-transformations" class="level3">
+<h3 class="anchored" data-anchor-id="data-transformations">1.2 Data transformations</h3>
+<ul>
+<li><strong>logarithm transformation</strong>: $ y = (x)$</li>
+<li><strong>percentage change</strong>: <span class="math inline">\(\color{purple}\frac{y_t - y_{t-1}}{y_{t-1}}\)</span></li>
+<li><strong>difference</strong>: <span class="math inline">\(\color{purple}y_t - y\_{t-1}\)</span></li>
+<li><strong>per capita</strong>: <span class="math inline">\(\color{purple}\frac{y}{pop}\)</span></li>
+<li><strong>inverted</strong>: <span class="math inline">\(\color{purple}\frac{1}{y}\)</span></li>
+<li><strong>lag</strong>: <span class="math inline">\(\color{purple}y\_{t-1}\)</span></li>
+<li><strong>square</strong>: <span class="math inline">\(\color{purple}y_{sq}=y^2\)</span></li>
+</ul>
+</section>
+<section id="data-types" class="level3">
+<h3 class="anchored" data-anchor-id="data-types">1.3 Data types</h3>
+<ul>
+<li><strong>continuous</strong>: e.g.&nbsp;income, age</li>
+<li><strong>discrete</strong>: e.g.&nbsp;number of children</li>
+<li><strong>binary</strong>: e.g.&nbsp;approved or not approved</li>
+<li><strong>ordinal</strong>: e.g.&nbsp;education level</li>
+<li><strong>nominal</strong>: e.g.&nbsp;country name</li>
+<li><strong>time</strong>: e.g.&nbsp;date, time</li>
+<li><strong>geographical</strong>: e.g.&nbsp;latitude, longitude</li>
+<li><strong>muultinomial</strong>: e.g.&nbsp;political party, or car color</li>
+</ul>
+</section>
+<section id="data-sources" class="level3">
+<h3 class="anchored" data-anchor-id="data-sources">1.4 Data sources</h3>
+<ul>
+<li><strong>primary data</strong>: data collected by the researcher</li>
+<li><strong>secondary data</strong>: data collected by someone else</li>
+<li><strong>administrative data</strong>: data collected by government or other organizations</li>
+<li><strong>big data</strong>: large and complex data sets</li>
+<li><strong>open data</strong>: data that is freely available to everyone</li>
+<li><strong>proprietary data</strong>: data that is owned by a company or organization</li>
+</ul>
+</section>
+<section id="variables---tests" class="level3">
+<h3 class="anchored" data-anchor-id="variables---tests">1.5 Variables - tests</h3>
+<ul>
+<li><strong>normality test</strong>: test if the data is normally distributed; e.g.&nbsp;<em>histrogram</em>;&nbsp;<em>Shapiro-Wilk test</em>; <em>Jarque-Bera test</em>; (skewness and kurtosis)</li>
+<li><strong>variability coefficient</strong>: standard deviation/mean;</li>
+</ul>
+</section>
+</section>
+<section id="linear-regression-models" class="level2">
+<h2 class="anchored" data-anchor-id="linear-regression-models">2 Linear regression models</h2>
+<section id="simple-linear-regression-and-multiple-linear-regression" class="level3">
+<h3 class="anchored" data-anchor-id="simple-linear-regression-and-multiple-linear-regression">2.1 Simple linear regression and multiple linear regression</h3>
+<ul>
+<li><p><strong>Purpose</strong>: Used for estimating the relationship between a dependent variable and one ot more independent variables.</p></li>
+<li><p><strong>Method</strong>: OLS - Minimizes the sum of squared residuals.</p></li>
+<li><p><strong>Dependent Variable</strong>: Continuous</p></li>
+<li><p><strong>Equations</strong>: - Simple regression: <span class="math inline">\(\color{purple}y = \beta_0 + \beta_1 x + u\)</span> - Multiple regression: <span class="math inline">\(\color{purple}y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_k x_k + u\)</span> Where: <span class="math inline">\(\color{purple}y\)</span> is the dependent variable, <span class="math inline">\(\color{purple}x\)</span> is the independent variable, <span class="math inline">\(\color{purple}\beta_0\)</span> is the intercept, <span class="math inline">\(\color{purple}\beta_1...\beta_k\)</span> are the coefficients of the independent variables, <span class="math inline">\(\color{purple}u\)</span> is the error term.</p></li>
+</ul>
+<section id="assumptions" class="level4">
+<h4 class="anchored" data-anchor-id="assumptions">2.1.1 Assumptions</h4>
+<ul>
+<li><strong>normality</strong>: errors are normally distributed</li>
+<li><strong>linearity</strong>: the relationship between the dependent and independent variables is linear</li>
+<li><strong>homoscedasticity</strong>: constant variance of errors. e.g.&nbsp;<em>white test</em>; <em>ARCH test</em>; <em>Park test</em>…</li>
+<li><strong>independence</strong>: observations are independent of each other. e.g.&nbsp;No serial correlation between erros.</li>
+<li><strong>no multicollinearity</strong>: independent variables are not highly correlated with each other. e.g.&nbsp;<em>VIF test</em>; <em>correlation matrix</em>; <em>plot</em>; <em>regressions</em>…</li>
+</ul>
+</section>
+<section id="model-fit---goodness-of-fit" class="level4">
+<h4 class="anchored" data-anchor-id="model-fit---goodness-of-fit">2.1.2 Model fit - goodness of fit</h4>
+<ul>
+<li><strong>R-squared</strong>: the proportion of variance in the dependent variable that is explained by the independent variables.</li>
+<li><strong>Adjusted R-squared</strong>: a modified version of R-squared that adjusts for the number of independent variables in the model.</li>
+</ul>
+</section>
+<section id="interpretation" class="level4">
+<h4 class="anchored" data-anchor-id="interpretation">2.1.3 Interpretation</h4>
+<ul>
+<li><strong>Coefficients</strong>: represent the change in the dependent variable for a one-unit change in the independent variable. It dependes on the scale of the independent variable and model specification.</li>
+</ul>
+</section>
+<section id="hipothesis-testing" class="level4">
+<h4 class="anchored" data-anchor-id="hipothesis-testing">2.1.4 Hipothesis testing</h4>
+<ul>
+<li><strong>individual coefficients</strong>: test the significance of each coefficient. <em>t-test</em></li>
+<li><strong>linear combination of coefficients</strong>: test the significance of a linear combination of coefficients. <em>F-test</em></li>
+<li><strong>overall model</strong>: test the overall significance of the model. <em>F-test</em></li>
+</ul>
+</section>
+<section id="generalized-least-squares---gls" class="level4">
+<h4 class="anchored" data-anchor-id="generalized-least-squares---gls">2.1.5 Generalized Least Squares - GLS</h4>
+</section>
+<section id="weighted-least-squares---wls" class="level4">
+<h4 class="anchored" data-anchor-id="weighted-least-squares---wls">2.1.6 Weighted Least Squares - WLS</h4>
+</section>
+</section>
+</section>
+<section id="model-evaluation-ols" class="level2">
+<h2 class="anchored" data-anchor-id="model-evaluation-ols">3. Model evaluation (OLS)</h2>
+<ul>
+<li><strong>F-test</strong>: joint significance of the independent variables</li>
+<li><strong>t-test</strong>: significance of individual coefficients</li>
+<li><strong>R-squared/adjusted R-squared</strong>: goodness of fit</li>
+<li><strong>Information criteria</strong>: AIC, BIC, HQIC</li>
+<li><strong>residual tests:</strong>: normality test (Jarque-Bera), heteroskedasticity.</li>
+<li><strong>tests for strucuture</strong>: Ramsey RESET test (miss specification - functional funcional), Chow test (structural break in the model), CUSUM and CUSUMSQ tests (coefficients stability)</li>
+<li><strong>redundant variable test</strong>: likelihood ratio test</li>
+<li><strong>omitted variable test</strong>: likelihod ratio test</li>
+<li><strong>multicollinearity test</strong>: VIF, regressions</li>
+</ul>
+</section>
+<section id="some-extensions" class="level2">
+<h2 class="anchored" data-anchor-id="some-extensions">4. Some extensions</h2>
+<ul>
+<li>seasonality
+<ul>
+<li>detection:
+<ul>
+<li>plot</li>
+<li>regression</li>
+</ul></li>
+<li>dealing with:
+<ul>
+<li>seasonal dummies</li>
+<li>seasonal adjustment - stl decomposition</li>
+<li>homologous series</li>
+</ul></li>
+</ul></li>
+<li>dummy variables:
+<ul>
+<li>impulse</li>
+<li>shift</li>
+<li>seasonal</li>
+</ul></li>
+</ul>
+</section>
+<section id="limited-dependent-variable-model-binary-choice-model" class="level2">
+<h2 class="anchored" data-anchor-id="limited-dependent-variable-model-binary-choice-model">5. Limited dependent variable model (binary choice model)</h2>
+<ul>
+<li><strong>Purpose</strong>: Used for modeling binary outcome variables.</li>
+<li><strong>Dependent Variable</strong>: Binary (0 or 1).</li>
+</ul>
+<section id="lpm---linear-probability-model" class="level3">
+<h3 class="anchored" data-anchor-id="lpm---linear-probability-model">LPM - linear probability model</h3>
+<ul>
+<li><strong>method</strong>: OLS
+<ul>
+<li><strong>interpretation</strong>: Coefficients represent the change in the probability of the dependent variable for a one-unit change in the independent variable. <strong>Predict the probability of success (when d=1)</strong></li>
+<li><strong>assumptions</strong>:
+<ul>
+<li><strong>linearity</strong>: the relationship between the dependent and independent variables is linear</li>
+<li><strong>homoscedasticity</strong></li>
+<li><strong>independence</strong></li>
+<li><strong>normality</strong></li>
+</ul></li>
+</ul></li>
+<li><strong>main limitation</strong>: predicted probabilities can be outside the [0,1] range.</li>
+<li><strong>percentage correctly predicted</strong>: the proportion of observations that are correctly predicted by the model (nº of times that <span class="math inline">\(y=\hat{y}\)</span>)</li>
+<li><strong>solution</strong>: use the logit or probit model.</li>
+</ul>
+</section>
+<section id="logit-and-probit-model" class="level3">
+<h3 class="anchored" data-anchor-id="logit-and-probit-model">Logit and Probit Model</h3>
+<ul>
+<li><strong>method</strong>: <em>Maximum likelihood estimation</em> - (“Método da máxima verossimilhança”)</li>
+<li><strong>assumption</strong>: linearity in logit (log odds) or probit (z-score)</li>
+<li><strong>ouptut</strong>: signal and stattistical significance of the coefficients</li>
+<li><strong>inetrpretation</strong>: partial effect at mean or average partial effect</li>
+<li><strong>Predict the probability of success (when d=1)</strong></li>
+</ul>
+<section id="model-fit" class="level4">
+<h4 class="anchored" data-anchor-id="model-fit">Model fit</h4>
+<ul>
+<li><strong>pseudo R-squared</strong>: a measure of the goodness of fit of the model.</li>
+<li><strong>likelihood ratio test</strong>: compares the fit of the model to a null model (only with intercept).</li>
+<li><strong>percentage correctly predicted</strong>: the proportion of observations that are correctly predicted by the model (nº of times that d=d_hat)</li>
+</ul>
+</section>
+</section>
+<section id="tobit-model" class="level3">
+<h3 class="anchored" data-anchor-id="tobit-model">Tobit model</h3>
+<ul>
+<li><strong>method</strong>: <em>Maximum likelihood estimation</em></li>
+<li><strong>definition</strong>: used when the dependent variable is censored or truncated. e.g.&nbsp;income, prices, index of happiness; e.g.&nbsp;<em>censoring</em>: when the dependent variable is observed only if it is above or below a certain threshold (variables outside the threshold assume the values of the threshold) ; e.g.&nbsp;<em>truncation</em>: when the dependent variable is observed only if it is below or above a certain threshold (valued removed).</li>
+</ul>
+</section>
+</section>
+<section id="spatial-models-spatial-econometrics" class="level2">
+<h2 class="anchored" data-anchor-id="spatial-models-spatial-econometrics">6. Spatial models (spatial econometrics)</h2>
+<p>Definition: models that account for the spatial relationships between observations.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
